@@ -1,5 +1,4 @@
 "use strict";
-
 // Select the title of the game
 const title = document.getElementById("title");
 
@@ -39,4 +38,38 @@ drumButtons.forEach((button) => {
     let audio = new Audio(soundFile);
     audio.play();
   });
+});
+
+document.addEventListener("keydown", (e) => {
+  let theKey = e.key.toLowerCase();
+  let soundFile = "";
+
+  switch (theKey) {
+    case "w":
+      soundFile = "sounds/tom-1.mp3";
+      break;
+    case "a":
+      soundFile = "sounds/tom-2.mp3";
+      break;
+    case "s":
+      soundFile = "sounds/tom-3.mp3";
+      break;
+    case "d":
+      soundFile = "sounds/tom-4.mp3";
+      break;
+    case "j":
+      soundFile = "sounds/snare.mp3";
+      break;
+    case "k":
+      soundFile = "sounds/crash.mp3";
+      break;
+    case "l":
+      soundFile = "sounds/kick-bass.mp3";
+      break;
+    default:
+      console.log("Invalid key: " + key);
+      return; // Exit if no valid key
+  }
+  let audio = new Audio(soundFile);
+  audio.play();
 });
